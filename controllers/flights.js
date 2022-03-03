@@ -33,12 +33,12 @@ function show(req, res){
   Flight.findById(req.params.id)
   .populate('meals')
   .exec(function(error, flight) {
-    Meal.find({_id: {$nin: flight.meals}}, function(error, meals) {
+    Meal.find({_id: {$nin: flight?.meals}}, function(error, meals) {
       res.render('flights/show', {
         title: 'Flight Details', 
         flight,
         meals
-      })
+      }) 
     })
   })
 }
