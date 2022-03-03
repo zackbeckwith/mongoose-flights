@@ -24,6 +24,8 @@ router.get('/:id/edit', flightsCtrl.edit)
 router.post("/", flightsCtrl.create)
 // POST - /flights/:id/tickets
 router.post('/:id/tickets', flightsCtrl.createTicket)
+// POST - /:id/performers
+router.post('/:id/meals', flightsCtrl.addMeal);
 
 // PUT - /flights/:id
 router.put('/:id', flightsCtrl.update)
