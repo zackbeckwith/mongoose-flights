@@ -2,10 +2,23 @@ import mongoose from "mongoose";
 
 const Schema = mongoose.Schema
 
-const flightSchema = new Schema ({
+const ticketSchema = new Schema({
+  seat: {
+    type: String,
+    required: true
+  },
+  price: {
+    type: Number,
+    required: true
+  }
+}, {
+  timestamps: true
+})
+
+const flightSchema = new Schema({
   airline: {
     type: String,
-    enum: ['American', 'Southwest', 'United'],
+    enum: ['American', 'Southwest',  'United'],
     required: true
   },
   airport: {
@@ -15,11 +28,12 @@ const flightSchema = new Schema ({
   },
   flightNo: {
     type: Number,
-    required: true,
-  },
+    required: true
+  }, 
   departs: {
     type: Date, 
-}, 
+    default: new Date(new Date().setFullYear(new Date().getFullYear() + 1))},
+  tickets: [ticketSchema]
 }, {
   timestamps: true
 })
