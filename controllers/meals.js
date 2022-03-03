@@ -14,6 +14,7 @@ function create(req, res) {
     res.redirect('/meals/new')
   })
 }
+
 export {
   newMeal as new,
   create,
